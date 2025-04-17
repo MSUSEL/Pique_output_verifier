@@ -2,7 +2,7 @@
 
 ### This is to ensure the contract between the pique models and the visualizer yvette is creating is up held. 
 
-[Full Schema](#Full Schema)
+[Full Schema](#full-schema)
 
 ## Requirements
 
