@@ -4,12 +4,17 @@
 
 [Full Schema](#Full Schema)
 
+## Requirements
+
+- Need node and npm ideally most recent version
+
 ## Run
 
 - run these commands
 
 ```bash
 
+npm i
 npm run build
 npm run start 'path to your eval file'
 ```
