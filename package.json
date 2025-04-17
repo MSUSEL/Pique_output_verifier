@@ -1,0 +1,19 @@
+{
+  "name": "Eval_Def",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc",
+    "start" : "node dist/index.js"
+  },
+  "dependencies": {
+    "@types/node": "^22.14.1",
+    "fs": "^0.0.1-security",
+    "zod": "^3.24.3"
+  },
+  "devDependencies": {
+    "typescript": "^5.8.3"
+  },
+  "private": true
+}
