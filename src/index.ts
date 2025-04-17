@@ -5,13 +5,15 @@ import * as path from 'path'
 
 const args : string[] = process.argv;
 
-function readJsonFile(filePath: string): any {
+function readJsonFile(): any {
     try{
+        let filePath = args[2];
         const absolutePath = path.resolve(filePath);
         const fileContent = fs.readFileSync(absolutePath, 'utf8');
         return JSON.parse(fileContent);
     }catch(err){
         console.error(err);
+        console.log("Hello user! Something went wrong! most likely you didn't put the correct path to your file you want to check \n\n The command is:\n npm run start 'path to your file' \n\n After building ofc");
         return null;
     }
 }
@@ -24,7 +26,7 @@ function checkJson(json: any): boolean {
     return result.success;
 }
 
-const inObject =  readJsonFile(args[2])
+const inObject =  readJsonFile()
 if (checkJson(inObject)) {
     console.log("file is compliant")
 }
