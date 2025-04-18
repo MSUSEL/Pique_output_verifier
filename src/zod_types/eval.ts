@@ -1,11 +1,27 @@
 import {z} from 'zod'
 
+const finding = z.object({
+    vulnSource: z.string(),
+    vulnSourceVersion : z.string(),
+    name : z.string(),
+    value : z.number(),
+    description : z.string(),
+    children: z.record(z.object({})),
+    weights : z.record(z.number()),
+    eval_strategy : z.string(),
+    normalizer : z.string(),
+    utility_function : z.object({
+        name: z.string(),
+        description : z.string(),
+    })
+})
+
 const diagnostic = z.object({
     toolName: z.string(),
     name: z.string(),
     value : z.number(),
     description : z.string(),
-    children: z.record(z.object({})),
+    children: z.record(finding.or(z.object({}))),
     weights : z.record(z.number()),
     eval_strategy : z.string(),
     normalizer : z.string(),

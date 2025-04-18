@@ -31,5 +31,5 @@ function checkJson(json: any): EvalType | null {
 
 const inObject =  readJsonFile()
 if (checkJson(inObject)) {
-    console.log("file is compliant")
+    console.log("file is compliant");
 }
