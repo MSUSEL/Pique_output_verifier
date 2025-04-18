@@ -59,13 +59,28 @@ const RootEvalType = z.object({
 ## Full Schema
 
 ```typescript
+const finding = z.object({
+    vulnSource: z.string(),
+    vulnSourceVersion : z.string(),
+    name : z.string(),
+    value : z.number(),
+    description : z.string(),
+    children: z.record(z.object({})),
+    weights : z.record(z.number()),
+    eval_strategy : z.string(),
+    normalizer : z.string(),
+    utility_function : z.object({
+        name: z.string(),
+        description : z.string(),
+    })
+})
 
 const diagnostic = z.object({
     toolName: z.string(),
     name: z.string(),
     value : z.number(),
     description : z.string(),
-    children: z.record(z.object({})),
+    children: z.record(finding.or(z.object({}))),
     weights : z.record(z.number()),
     eval_strategy : z.string(),
     normalizer : z.string(),
@@ -147,6 +162,13 @@ const RootEvalType = z.object({
         product_factors : z.record(product_factor),
         quality_aspects : z.record(quality_aspect),
         tqi : z.record(tqi)
-    })
+    }),
+    measures : z.record(measure),
+    diagnostics : z.record(diagnostic)
 });
+
+export default RootEvalType;
+export type EvalType = z.infer<typeof RootEvalType>
+
+
 ```
