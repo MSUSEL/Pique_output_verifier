@@ -87,9 +87,11 @@ const RootEvalType = z.object({
         product_factors : z.record(product_factor),
         quality_aspects : z.record(quality_aspect),
         tqi : z.record(tqi)
-    })
+    }),
+    measures : z.record(measure),
+    diagnostics : z.record(diagnostic)
 });
 
 export default RootEvalType;
-
+export type EvalType = z.infer<typeof RootEvalType>
 

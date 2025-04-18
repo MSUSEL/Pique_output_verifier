@@ -1,5 +1,6 @@
 
 import RootEvalType from './zod_types/eval'
+import type {EvalType} from "./zod_types/eval";
 import * as fs from 'fs'
 import * as path from 'path'
 
@@ -18,12 +19,14 @@ function readJsonFile(): any {
     }
 }
 
-function checkJson(json: any): boolean {
+function checkJson(json: any): EvalType | null {
     const result = RootEvalType.safeParse(json);
     if (!result.success) {
         console.error(result.error.issues);
+        return null;
     }
-    return result.success;
+    const typedData : EvalType = result.data;
+    return typedData;
 }
 
 const inObject =  readJsonFile()
