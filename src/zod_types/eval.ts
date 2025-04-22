@@ -1,5 +1,4 @@
 import {z} from 'zod'
-//TODO: add fixed version
 const finding = z.object({
     fixedVersion : z.string().optional(),
     fixed : z.string().optional(),
