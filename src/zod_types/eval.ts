@@ -1,7 +1,7 @@
 import {z} from 'zod'
 const finding = z.object({
     fixedVersion : z.string().optional(),
-    fixed : z.string().optional(),
+    fixed : z.boolean().optional(),
     vulnSource: z.string().optional(),
     vulnSourceVersion : z.string().optional(),
     name : z.string(),
